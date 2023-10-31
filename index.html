@@ -5,16 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benteng Vredeburg</title>
-    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700;900&display=swap" rel="stylesheet"> 
+    <link href="assets/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <nav class="fixed z-200 text-white w-full" id="navbar">
+        <div class="relative w-full">
+            <div class="flex w-full p-16px">
+                <div class="flex-col-half flex justify-center align-items-center">        
+                    <h1 class="font-weight-regular">
+                        <i class="fa-brands fa-fort-awesome mr-05em"></i>        
+                        Benteng Vredeburg
+                    </h1>
+                </div>
+                <div class="flex-col-half">                
+                    <ol class="flex" style="gap: 50px;">
+                        <li>About</li>
+                        <li>History</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="container bg-with-img flex align-items-bottom justify-center relative overflow-hidden">
-        <div class="z-100 mb-2em" style="width: 50%">
+        <div class="z-100 mb-2em" style="width: 50%" id="welcome-text">
             <span class="text-white size-24px text-size-xl ">Benteng Vredeburg adalah museum sejarah militer yang terletak di Yogyakarta, Indonesia.</span>
-            <button class="button button-outline-white text-white cursor-pointer size-24px mt-4em">Mulai</button>
+            <button class="button button-outline-white text-white cursor-pointer size-24px mt-4em"><i class="fa-solid fa-angle-down mr-05em"></i>Pelajari Lebih Lanjut</button>
         </div>
         <div class="overlay-black z-50"></div>
         <iframe 
@@ -22,11 +43,11 @@
         src="https://www.youtube.com/embed/VqvqxYbIjr8?controls=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=VqvqxYbIjr8"
         frameBorder="0"
         allowFullScreen
-        allow="autoplay"
-      />
+        allow="autoplay" ></iframe>
     </div>
     <div class="container">
-        <div class=""></div>
+        test
     </div>
 </body>
+<script src="assets/js/main.js" ></script>
 </html>
