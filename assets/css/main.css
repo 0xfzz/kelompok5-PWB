@@ -23,6 +23,9 @@ body, html, h1 {
 .align-items-center {
     align-items: center;
 }
+.align-items-bottom {
+    align-items:flex-end;
+}
 .container{
     height: 100vh;
 }
@@ -65,9 +68,10 @@ body, html, h1 {
     color: #4C4C6D;
 }
 .button {
-    padding: 8px 12px;
+    padding: 4px 24px;
     outline: none;
     border: 0;
+    background: transparent;
 }
 .cursor-pointer {
     cursor: pointer;
@@ -75,4 +79,52 @@ body, html, h1 {
 .button-primary {
     background-color: #4C4C6D;
     color: white
+}
+.button-outline-white{
+    border: 2px solid white;
+}
+.bg-video {
+    position: absolute;
+    left: 0;
+    top: -80px;
+    background-size: cover;
+    background: no-repeat center;
+
+    user-select: none;
+    pointer-events: none;
+  
+    height: 100%;
+    width: 177.77777778vh; /* 100 * 16 / 9 */
+    min-width: 100%;
+    min-height: 56.25vw; /* 100 * 9 / 16 */
+  }
+.h1-size {
+    font-size: 72px !important;
+}
+.z-50 {
+    z-index: 50;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+.pb-8px {
+    padding-bottom: 8px;
+}
+.pb-16px {
+    padding-bottom: 16px;
+}
+.mt-6em {
+    margin-top: 6em;
+}
+.mt-4em {
+    margin-top: 4em;
+}
+.mb-2em {
+    margin-bottom: 2em;
+}
+.p-16px {
+    padding: 16px;
+}
+.text-size-xl {
+    font-size: 42px;
 }
