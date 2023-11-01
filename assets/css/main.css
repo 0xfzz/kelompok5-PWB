@@ -10,6 +10,9 @@ body, html, h1 {
     margin: 0;
     padding: 0;
 }
+#navbar {
+    transition: 0.5s;
+}
 .text-center {
     text-align: center;
 }
@@ -18,6 +21,9 @@ body, html, h1 {
 }
 .font-weight-700 {
     font-weight: 700;
+}
+.font-weight-900 {
+    font-weight: 900;
 }
 .font-weight-regular {
     font-weight: normal;
@@ -91,6 +97,9 @@ body, html, h1 {
 .size-24px{
     font-size: 24px;
 }
+.size-16px{
+    font-size: 16px !important;
+}
 .text-primary{
     color: #4C4C6D;
 }
@@ -115,6 +124,15 @@ body, html, h1 {
     border: 2px solid white;
     background-color: white;
     color: black;
+}
+.button-outline-black{
+    border: 2px solid black;
+    transition: all;
+}
+.button-outline-black:hover{
+    border: 2px solid black;
+    background-color: black;
+    color: white;
 }
 .bg-video {
     position: absolute;
@@ -155,6 +173,9 @@ body, html, h1 {
 .mr-05em{
     margin-right: 0.5em;
 }
+.mt-05em{
+    margin-top: 0.5em;
+}
 .mb-2em {
     margin-bottom: 2em;
 }
@@ -167,4 +188,36 @@ body, html, h1 {
 }
 .text-size-xl {
     font-size: 42px;
+}
+.w-half {
+    width: 50%;
+}
+.w-60percent {
+    width: 60%;
+}
+.very-big-letter {
+    font-size: 8em;
+}
+.text-corner-bottom-right {
+    font-size: 20em;
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    opacity: 0.1;
+    line-height: 0.8em;
+    letter-spacing: -27px;
+    color: #4C4C6D;
+    user-select: none;
+    pointer-events: none;
+    font-family: "Montserrat";
+}
+.corner-left-bottom {
+    bottom: 0;
+    left: 0;
+}
+.pr-8px {
+    margin-right: 24px;
+}
+.h-full {
+    height: 100%;
 }
