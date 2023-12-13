@@ -41,6 +41,9 @@ body, html, h1 {
 .justify-center {
     justify-content: center;
 }
+.align-items-top {
+    align-items: flex-start;
+}
 .align-items-center {
     align-items: center;
 }
@@ -91,6 +94,9 @@ body, html, h1 {
 .padding-8px{
     padding: 8px;
 }
+.padding-24px{
+    padding: 24px;
+}
 .navbar {
     background-color: #FFE194;
 }
@@ -99,6 +105,12 @@ body, html, h1 {
 }
 .size-16px{
     font-size: 16px !important;
+}
+.size-18px{
+    font-size: 18px !important;
+}
+.size-20px{
+    font-size: 20px !important;
 }
 .text-primary{
     color: #4C4C6D;
@@ -137,7 +149,7 @@ body, html, h1 {
 .bg-video {
     position: absolute;
     left: 0;
-    top: -80px;
+    top: 0;
     background-size: cover;
     background: no-repeat center;
 
@@ -204,14 +216,27 @@ body, html, h1 {
 .very-big-letter {
     font-size: 8em;
 }
+.text-corner-top-right {
+    font-size: 10rem;
+    position: absolute;
+    right: 5rem;
+    top: 2rem;
+    opacity: 0.2;
+    line-height: 0.8em;
+    letter-spacing: -10px;
+    color: #49392b;
+    user-select: none;
+    pointer-events: none;
+    font-family: "Montserrat";
+}
 .text-corner-bottom-right {
-    font-size: 20em;
+    font-size: 15em;
     position: absolute;
     right: 10px;
     bottom: 8px;
     opacity: 0.2;
     line-height: 0.8em;
-    letter-spacing: -27px;
+    letter-spacing: -20px;
     color: #4C4C6D;
     user-select: none;
     pointer-events: none;
@@ -232,12 +257,44 @@ body, html, h1 {
 }
 .pentol::before {
     content: "";
-    background: black;
+    background: #D3B598;
     width: 20px;
     height: 20px;
     position: absolute;
     border-radius: 50%;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
+}
+.sticky {
+    position: sticky;
+}
+.garis {
+    width: 3px; text-align: center; background-color: #D3B598;
+}
+@media only screen and (max-width: 1600px) {
+    .text-corner-bottom-right {
+        font-size: 14em;
+        position: absolute;
+        right: 10px;
+        bottom: 8px;
+        opacity: 0.2;
+        line-height: 0.8em;
+        letter-spacing: -19px;
+        color: #4C4C6D;
+        user-select: none;
+        pointer-events: none;
+        font-family: "Montserrat";
+    }
+}
+
+@media only screen and (min-width: 300px ) and (max-width: 450px) {
+    .when-mobile-display-none {
+        display: none;
+    }
+    .when-mobile-display-block {
+        display: block;
+    }
+    .when-mobile-display-flex {
+        display: flex;
+    }
 }
