@@ -44,7 +44,7 @@ function createItemTimeline(left, right){
     nodeDivLeft.style.textAlign = "right"
     nodeDivLeft.style.paddingBottom = "24px"
     nodeDivLeft.innerHTML = left
-    nodeWrapper.className = "flex w-full size-20px"
+    nodeWrapper.className = "flex w-full size-regular"
     nodeWrapper.append(nodeDivLeft, nodeLine, nodeDivRight)
     return nodeWrapper
 }
