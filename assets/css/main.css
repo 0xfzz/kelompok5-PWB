@@ -274,6 +274,9 @@ body, html, h1 {
 .garis {
     width: 3px; text-align: center; background-color: #D3B598;
 }
+.hr {
+    width: 50%;
+}
 @media only screen and (max-width: 1600px) {
     .text-corner-bottom-right {
         font-size: 14em;
@@ -300,4 +303,22 @@ body, html, h1 {
     .when-mobile-display-flex {
         display: flex;
     }
+}
+.text-m {
+    font-family: "Montserrat";
+
+}
+.xtra-bold {
+    font-weight: 900;
+}
+.regular {
+    font-weight: 400;
+}
+.light {
+    font-weight: 200;
+}
+.bottom-right {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
 }
