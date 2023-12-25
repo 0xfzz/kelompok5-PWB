@@ -111,6 +111,7 @@ body, html, h1 {
     font-size: 3rem;
     font-weight: 400;
 }
+
 .bg-krem {
     background-color: #D3B598;
 }
@@ -358,6 +359,7 @@ body, html, h1 {
         display: flex;
     }
 }
+
 .text-m {
     font-family: "Montserrat";
 
@@ -439,4 +441,22 @@ body, html, h1 {
 }
 .tokoh img:hover {
     filter: drop-shadow(20px 5px #D3B598) ;
+}
+@media only screen and (min-width: 1280px ) and (max-width: 1600px) {
+    .haeder-text {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    .side-header-text {
+        font-size: 2rem;
+    }
+    .size-24px {
+        font-size: 16px;
+    }
+    .size-regular {
+        font-size: 1rem !important;
+    }
+    .p-tengah {
+        padding: 5em;
+    }
 }
