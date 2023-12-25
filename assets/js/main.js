@@ -51,7 +51,7 @@ function createItemTimeline(left, right){
 const nodes = []
 var apanih = 0
 for(const item of sejarah){
-    item.tahun = `<b>${item.tahun}</b>`
+    item.tahun = `<b class="text-krem">${item.tahun}</b>`
     if(apanih == 0){
         nodes.push(createItemTimeline(item.tahun, item.peristiwa))
         apanih = 1
@@ -61,7 +61,76 @@ for(const item of sejarah){
     }
     
 }
+const elementTab = document.getElementsByClassName("tab")
+function hideAllKonten(){
+    const elements = document.getElementsByClassName("konten")
+    for(const element of elements){
+        element.style.display = "none"
+    }
+}
+hideAllKonten()
+function clearClass(){
+    for(const tab of elementTab){
+        tab.classList.remove("active")
+    }
+}
+function hidupKonten(id){
+    hideAllKonten()
+    document.getElementById(id).style.display = "flex"
+}
+for(const tab of elementTab){
+    tab.addEventListener("click", (ev) => {
+        clearClass()
+        console.log(tab.getAttribute("data-id"))
+        tab.classList.add("active")
+        hidupKonten(tab.getAttribute("data-id"))
+    })
+    const active = tab.classList.toString().split(" ").indexOf("active")
+    if(active > -1) {
+        const id = tab.getAttribute("data-id")
+        console.log(id)
+        hidupKonten(id)
+    }
+    
+}
+const slides = document.querySelectorAll(".slide");
 
+slides.forEach((slide, indx) => {
+  slide.style.transform = `translateX(${indx * 100}%)`;
+});
+let curSlide = 0
+function prevSlide(){
+    curSlide--
+    if(slides.length - 1 > curSlide){
+        curSlide = slides.length - 1
+    }
+    slides.forEach((slide, indx) => {
+        slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+    });
+}
+function nextSlide(){
+    curSlide++
+    if(slides.length - 1 < curSlide){
+        curSlide = 0
+    }
+    slides.forEach((slide, indx) => {
+        slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+    });
+}
+document.querySelector(".btn.next").addEventListener("click", (e) => {
+    nextSlide()
+})
+document.querySelector(".btn.prev").addEventListener("click", (e) => {
+    prevSlide()
+})
+var slider = document.getElementById("slider")
+var interval = setInterval(nextSlide, 5000)
+slider.addEventListener("mouseover",function(){
+    clearInterval(interval)
+})
+slider.addEventListener("mouseout",function(){
+    interval = setInterval(nextSlide, 5000)
+})
 document.getElementById("timeline").append(...nodes)
 document.addEventListener("scroll", (e) => {
     var welcomeText = document.getElementById("welcome-text")
