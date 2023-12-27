@@ -437,10 +437,16 @@ body, html, h1 {
 }
 .tokoh img {
     transition: filter 1s;
-    filter: drop-shadow(5px 5px #D3B598);
+    filter: drop-shadow(10px 5px #D3B598);
+    width: 350px;
 }
 .tokoh img:hover {
     filter: drop-shadow(20px 5px #D3B598) ;
+}
+@media only screen and (min-width: 1280px ) and (max-width: 1350px) {
+    .tokoh img {
+        width: 200px;
+    }
 }
 @media only screen and (min-width: 1280px ) and (max-width: 1600px) {
     .haeder-text {
@@ -459,4 +465,7 @@ body, html, h1 {
     .p-tengah {
         padding: 5em;
     }
+}
+.padding-y-2em {
+    padding: 0.5em 0;
 }
