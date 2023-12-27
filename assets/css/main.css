@@ -558,6 +558,6 @@ body, html, h1 {
 }
 
 .gallery .item img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     cursor: pointer;
 }
