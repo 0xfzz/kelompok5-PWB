@@ -411,7 +411,10 @@ body, html, h1 {
 .p-tengah {
     padding: 10em;
 }
-
+.radius-bottom-10 {
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
 .radius-10 {
     border-radius: 2em;
 }
@@ -443,12 +446,12 @@ body, html, h1 {
 .tokoh img:hover {
     filter: drop-shadow(20px 5px #D3B598) ;
 }
-@media only screen and (min-width: 1280px ) and (max-width: 1350px) {
+@media only screen and (min-width: 350px ) and (max-width: 1350px) {
     .tokoh img {
         width: 200px;
     }
 }
-@media only screen and (min-width: 1280px ) and (max-width: 1600px) {
+@media only screen and (min-width: 350px ) and (max-width: 1600px) {
     .haeder-text {
         font-size: 2rem;
         font-weight: 400;
@@ -467,7 +470,6 @@ body, html, h1 {
     }
 }
 .container2 {
-    width: 800px;
     background-color:white;
     padding: 30px;
     box-shadow: 0 2px 16px rgba(0,0,0,.1);
@@ -526,4 +528,36 @@ body, html, h1 {
 }
 .padding-y-2em {
     padding: 0.5em 0;
+}
+
+.footer {
+    background-color: black;
+    padding: 24px;
+    text-align: center;
+    color: #D3B598;
+}
+.gallery {
+    padding-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.gallery .item {
+    flex: 1 1 300px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 2em;
+}
+
+.gallery .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s;
+}
+
+.gallery .item img:hover {
+    transform: scale(1.5);
+    cursor: pointer;
 }
