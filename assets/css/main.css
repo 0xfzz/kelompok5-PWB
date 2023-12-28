@@ -409,7 +409,7 @@ body, html, h1 {
 }
 
 .p-tengah {
-    padding: 10em;
+    padding: 8em;
 }
 .radius-bottom-10 {
     border-bottom-left-radius: 2em;
@@ -560,4 +560,34 @@ body, html, h1 {
 .gallery .item img:hover {
     transform: scale(1.2);
     cursor: pointer;
+}
+
+.list-artikel {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    width: 100%;
+}
+.artikel .gambar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2em;
+}
+.artikel .gambar {
+    width: 100%;
+}
+.artikel {
+    display: flex;
+    flex: 0 0 calc(100%/3 - 2em);
+    width: calc(100%/3 - 2em);
+    word-wrap: break-word;
+    gap: 1em;
+}
+.artikel h1 {
+    font-size: 24px;
+}
+.block {
+    display: block;
 }

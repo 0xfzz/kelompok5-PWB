@@ -1,3 +1,5 @@
+const path = window.location.pathname.split('/')[1]
+console.log(path)
 const sejarah = [{
     tahun: "1760-1765", 
     peristiwa: "pada awal pembangunannya status tanah tetap atas nama milik Keraton, tetapi penggunaannya di bawah pengawasan Nicolaas Harting, Gubernur Direktur wilayah Patai Utara Jawa."
@@ -48,118 +50,128 @@ function createItemTimeline(left, right){
     nodeWrapper.append(nodeDivLeft, nodeLine, nodeDivRight)
     return nodeWrapper
 }
-const nodes = []
-var apanih = 0
-for(const item of sejarah){
-    item.tahun = `<b class="text-krem">${item.tahun}</b>`
-    if(apanih == 0){
-        nodes.push(createItemTimeline(item.tahun, item.peristiwa))
-        apanih = 1
-    }else {
-        nodes.push(createItemTimeline(item.peristiwa, item.tahun))
-        apanih = 0
-    }
+if(path == "index.html" || path == ""){
+    const tabs = document.querySelectorAll(".tab_btn");
+    const all_content = document.querySelectorAll(".content");
+    const line = document.querySelector(".line");
     
-}
-const elementTab = document.getElementsByClassName("tab")
-function hideAllKonten(){
-    const elements = document.getElementsByClassName("konten")
-    for(const element of elements){
-        element.style.display = "none"
-    }
-}
-hideAllKonten()
-function clearClass(){
-    for(const tab of elementTab){
-        tab.classList.remove("active")
-    }
-}
-function hidupKonten(id){
-    hideAllKonten()
-    document.getElementById(id).style.display = "flex"
-}
-for(const tab of elementTab){
-    tab.addEventListener("click", (ev) => {
-        clearClass()
-        console.log(tab.getAttribute("data-id"))
-        tab.classList.add("active")
-        hidupKonten(tab.getAttribute("data-id"))
+    tabs.forEach((tab, index) => {
+        const isActive = tab.classList.contains("active")
+        if(isActive){
+            line.style.width = tab.offsetWidth + "px";
+            line.style.left = tab.offsetLeft + "px";
+        }
+        tab.addEventListener("click", (e) => {
+            tabs.forEach(tab => { tab.classList.remove("active") });
+            tab.classList.add("active");
+    
+            line.style.width = e.target.offsetWidth + "px";
+            line.style.left = e.target.offsetLeft + "px";
+    
+            all_content.forEach(content => { content.classList.remove("active") });
+            all_content[index].classList.add("active");
+        })
     })
-    const active = tab.classList.toString().split(" ").indexOf("active")
-    if(active > -1) {
-        const id = tab.getAttribute("data-id")
-        console.log(id)
-        hidupKonten(id)
+    const nodes = []
+    var apanih = 0
+    for(const item of sejarah){
+        item.tahun = `<b class="text-krem">${item.tahun}</b>`
+        if(apanih == 0){
+            nodes.push(createItemTimeline(item.tahun, item.peristiwa))
+            apanih = 1
+        }else {
+            nodes.push(createItemTimeline(item.peristiwa, item.tahun))
+            apanih = 0
+        }
+        
     }
+    const elementTab = document.getElementsByClassName("tab")
+    function hideAllKonten(){
+        const elements = document.getElementsByClassName("konten")
+        for(const element of elements){
+            element.style.display = "none"
+        }
+    }
+    hideAllKonten()
+    function clearClass(){
+        for(const tab of elementTab){
+            tab.classList.remove("active")
+        }
+    }
+    function hidupKonten(id){
+        hideAllKonten()
+        document.getElementById(id).style.display = "flex"
+    }
+    for(const tab of elementTab){
+        tab.addEventListener("click", (ev) => {
+            clearClass()
+            console.log(tab.getAttribute("data-id"))
+            tab.classList.add("active")
+            hidupKonten(tab.getAttribute("data-id"))
+        })
+        const active = tab.classList.toString().split(" ").indexOf("active")
+        if(active > -1) {
+            const id = tab.getAttribute("data-id")
+            console.log(id)
+            hidupKonten(id)
+        }
+        
+    }
+    const slides = document.querySelectorAll(".slide");
     
-}
-const slides = document.querySelectorAll(".slide");
-
-slides.forEach((slide, indx) => {
-  slide.style.transform = `translateX(${indx * 100}%)`;
-});
-let curSlide = 0
-function prevSlide(){
-    curSlide--
-    if(slides.length - 1 > curSlide){
-        curSlide = slides.length - 1
-    }
     slides.forEach((slide, indx) => {
-        slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+      slide.style.transform = `translateX(${indx * 100}%)`;
     });
-}
-function nextSlide(){
-    curSlide++
-    if(slides.length - 1 < curSlide){
-        curSlide = 0
+    let curSlide = 0
+    function prevSlide(){
+        curSlide--
+        if(slides.length - 1 > curSlide){
+            curSlide = slides.length - 1
+        }
+        slides.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+        });
     }
-    slides.forEach((slide, indx) => {
-        slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-    });
+    function nextSlide(){
+        curSlide++
+        if(slides.length - 1 < curSlide){
+            curSlide = 0
+        }
+        slides.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+        });
+    }
+    document.querySelector(".btn.next").addEventListener("click", (e) => {
+        nextSlide()
+    })
+    document.querySelector(".btn.prev").addEventListener("click", (e) => {
+        prevSlide()
+    })
+    var slider = document.getElementById("slider")
+    var interval = setInterval(nextSlide, 5000)
+    slider.addEventListener("mouseover",function(){
+        clearInterval(interval)
+    })
+    slider.addEventListener("mouseout",function(){
+        interval = setInterval(nextSlide, 5000)
+    })
+    document.getElementById("timeline").append(...nodes)
 }
-document.querySelector(".btn.next").addEventListener("click", (e) => {
-    nextSlide()
-})
-document.querySelector(".btn.prev").addEventListener("click", (e) => {
-    prevSlide()
-})
-var slider = document.getElementById("slider")
-var interval = setInterval(nextSlide, 5000)
-slider.addEventListener("mouseover",function(){
-    clearInterval(interval)
-})
-slider.addEventListener("mouseout",function(){
-    interval = setInterval(nextSlide, 5000)
-})
-document.getElementById("timeline").append(...nodes)
 document.addEventListener("scroll", (e) => {
-    var welcomeText = document.getElementById("welcome-text")
     var navbar = document.getElementById("navbar")
-    var height = welcomeText.offsetTop - welcomeText.scrollHeight
+    if(!document.getElementById("welcome-text")){
+        if(navbar.scrollHeight < document.documentElement.scrollTop){
+            navbar.classList.add("bg-black")
+        }else{
+            navbar.classList.remove("bg-black")
+        }
+        return 
+    }
+    var welcomeText = document.getElementById("welcome-text")
     if((welcomeText.offsetTop - navbar.scrollHeight) < document.documentElement.scrollTop){
         navbar.classList.add("bg-black")
     }else{
         navbar.classList.remove("bg-black")
     }
 })
-const tabs = document.querySelectorAll(".tab_btn");
-const all_content = document.querySelectorAll(".content");
-const line = document.querySelector(".line");
 
-tabs.forEach((tab, index) => {
-    const isActive = tab.classList.contains("active")
-    if(isActive){
-        line.style.width = tab.offsetWidth + "px";
-        line.style.left = tab.offsetLeft + "px";
-    }
-    tab.addEventListener("click", (e) => {
-        tabs.forEach(tab => { tab.classList.remove("active") });
-        tab.classList.add("active");
-
-        line.style.width = e.target.offsetWidth + "px";
-        line.style.left = e.target.offsetLeft + "px";
-
-        all_content.forEach(content => { content.classList.remove("active") });
-        all_content[index].classList.add("active");
-    })
-})
